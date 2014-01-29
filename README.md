@@ -3,7 +3,7 @@ Yalla
 
 Vagrant setup for [selenium](http://docs.seleniumhq.org/), [strider](https://github.com/Strider-CD/strider) and vnc 
 
-## Installation
+### Installation
 ```bash
 # Install virtualbox and vagrant, eg. brew cask install virtualbox vagrant
 clone https://github.com/tjoskar/yalla.git
@@ -17,17 +17,17 @@ Add:
 ```
 to your host file.
 
-## Selenium
+### Selenium
 Using firefox and google chrome
 Available at:
 http://127.0.0.1:4444/wd/hub
 http://yalla.dev:3000/wd/hub
 
-## Strider
+### Strider
 Available at:
 http://yalla.dev:3000
 
-## Vnc
+### Vnc
 Available at:
 yalla.dev:5901
 password:
