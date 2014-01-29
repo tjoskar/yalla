@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mv /home/vagrant/data/log/strider.txt /home/vagrant/data/log/strider_old.txt
+
+exec /usr/bin/node /home/vagrant/strider/bin/strider > /home/vagrant/data/log/strider.txt
