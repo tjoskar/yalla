@@ -1,4 +1,4 @@
 yalla
 =====
 
-Vagrant setup for (http://docs.seleniumhq.org/)[selenium], (https://github.com/Strider-CD/strider)[strider] and vnc 
+Vagrant setup for [selenium](http://docs.seleniumhq.org/), [strider](https://github.com/Strider-CD/strider) and vnc 
