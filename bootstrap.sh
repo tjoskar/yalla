@@ -50,6 +50,8 @@ else
   unzip chromedriver_linux32.zip
   mv chromedriver /usr/local/bin
   mv selenium-server-standalone-2.39.0.jar /usr/local/bin
+  chmod +x /usr/local/bin/chromedriver
+  chmod +x /usr/local/bin/selenium-server-standalone-2.39.0.jar
 
   # Install mogoDB
   apt-get install -y mongodb-10gen
