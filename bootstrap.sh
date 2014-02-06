@@ -32,18 +32,18 @@ else
   # Run an update again
   apt-get update
 
-  # Lets install nodejs
+  echo 'Lets install nodejs'
   apt-get install -y nodejs
 
-  # Create a (soft) link to avoid conflicts
-  mv /usr/local/bin/node /usr/local/bin/node_old 2>/dev/null
-  mv /usr/bin/node /usr/bin/node_old 2>/dev/null
+  echo 'Create a (soft) link to avoid conflicts'
+  [ -f /usr/local/bin/node ] && mv /usr/local/bin/node /usr/local/bin/node_old
+  [ -f /usr/bin/node ] && mv /usr/bin/node /usr/bin/node_old
   ln -s /usr/bin/nodejs /usr/bin/node
 
-  # Lest install google chrome
+  echo 'Lest install google chrome'
   apt-get install -y google-chrome-stable
 
-  # Download and copy the ChromeDriver to /usr/local/bin
+  echo 'Download and copy the ChromeDriver to /usr/local/bin'
   cd /tmp
   wget "http://chromedriver.storage.googleapis.com/2.8/chromedriver_linux32.zip"
   wget "http://selenium.googlecode.com/files/selenium-server-standalone-2.39.0.jar"
@@ -53,23 +53,24 @@ else
   chmod +x /usr/local/bin/chromedriver
   chmod +x /usr/local/bin/selenium-server-standalone-2.39.0.jar
 
-  # Install mogoDB
+  echo 'Install mogoDB'
   apt-get install -y mongodb-10gen
 
-  # Install phantomJS
+  echo 'Install phantomJS'
   apt-get install -y phantomjs
 
-  # Download Strider
+  echo 'Download Strider'
   cd /home/vagrant
   git clone https://github.com/Strider-CD/strider.git
   cd strider
   npm install
 
-  # Loop back yalla.dev
+  echo 'Loop back yalla.dev'
   echo "127.0.0.1       yalla.dev" | tee -a /etc/hosts
   mkdir /home/vagrant/data/log 2>/dev/null
 
   # Copy some files
+  mkdir /home/vagrant/.vnc/ 2>/dev/null
   chmod +x /home/vagrant/data/systemfiles/copy_files.sh
   source /home/vagrant/data/systemfiles/copy_files.sh
 
@@ -90,16 +91,9 @@ echo "   ##    ##     ## ######## ######## ##     ## \n"
 # Start Xvfb, Chrome, and Selenium in the background
 echo "Starting vnc4server ..."
 service vncserver start
-# nohup vnc4server > /home/vagrant/data/log/vnc4server.txt &
-# nohup x11vnc -create -env FD_PROG=/usr/bin/fluxbox -env X11VNC_FINDDISPLAY_ALWAYS_FAILS=1 -env X11VNC_CREATE_GEOM=${1:-1024x768x16} -gone 'killall Xvfb' -bg -nopw > /home/vagrant/data/log/x11vnc.txt &
 
 echo "Starting Selenium with chrome and firefox..."
 service selenium start
-# cd /usr/local/bin
-# export DISPLAY=:1
-# nohup java -jar ./selenium-server-standalone-2.39.0.jar -Dwebdriver.chrome.driver='./chromedriver' > /home/vagrant/data/log/selenium.txt &
 
 echo "Starting Strider..."
 service strider start
-# cd /home/vagrant/strider
-# nohup node bin/strider > /home/vagrant/data/log/strider.txt &
