@@ -72,7 +72,7 @@ else
   # Copy some files
   mkdir /home/vagrant/.vnc/ 2>/dev/null
   chmod +x /home/vagrant/data/systemfiles/copy_files.sh
-  source /home/vagrant/data/systemfiles/copy_files.sh
+  /home/vagrant/data/systemfiles/copy_files.sh
 
   echo 'source .prompt' >> /home/vagrant/.bashrc
 
