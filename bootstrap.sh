@@ -14,7 +14,7 @@ else
 
   # Install some basic packets
   apt-get install -y python-software-properties python g++ make python-pip python-virtualenv openjdk-7-jre unzip git-core
-  apt-get install -y x11vnc xvfb fluxbox firefox
+  apt-get install -y x11vnc xvfb vnc4server fluxbox firefox
 
   # Add chris-lea/nodejs (https://launchpad.net/~chris-lea/+archive/node.js/)
   add-apt-repository -y ppa:chris-lea/node.js
