@@ -16,8 +16,8 @@ cp /home/vagrant/data/systemfiles/home/.vnc/xstartup /home/vagrant/.vnc/
 cp /home/vagrant/data/systemfiles/home/.prompt /home/vagrant/
 
 
-chown vagrant:vagrant /home/vagrant/.vnc/passwd
-chown vagrant:vagrant /home/vagrant/.vnc/xstartup
+chown -R vagrant:vagrant /home/vagrant/.vnc/
+chmod 600 /home/vagrant/.vnc/passwd
 chown vagrant:vagrant /home/vagrant/.prompt
 
 chmod +x /etc/init.d/selenium
