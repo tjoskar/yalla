@@ -5,17 +5,13 @@ Vagrant setup for [selenium](http://docs.seleniumhq.org/), [strider](https://git
 
 ### Installation
 ```
-# Install virtualbox and vagrant, eg. brew cask install virtualbox vagrant
-clone https://github.com/tjoskar/yalla.git
+# Virtualbox and vagrant are required. eg. brew cask install virtualbox vagrant
+git clone https://github.com/tjoskar/yalla.git
 cd yalla
 vagrant up
 ```
 
-Add:
-```
-192.168.33.10 yalla.dev
-```
-to your host file.
+Add ``` 192.168.33.10 yalla.dev ``` to your host file.
 
 ### Selenium
 Using firefox and google chrome.  
@@ -34,7 +30,7 @@ grunt test
 python tasks.py &
 sleep 5
 python -m unittest discover
-kill -s 15 $(ps aux | grep '[p]ython tasks.py' | awk '{print $2}')
+kill $!
 ```
 
 Cleanup:
