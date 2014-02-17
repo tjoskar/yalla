@@ -67,14 +67,14 @@ else
 
   echo 'Loop back yalla.dev'
   echo "127.0.0.1       yalla.dev" | tee -a /etc/hosts
-  mkdir /home/vagrant/data/log 2>/dev/null
+  mkdir -p /home/vagrant/data/log
 
-  # Copy some files
-  mkdir /home/vagrant/.vnc/ 2>/dev/null
+  echo 'Copy some files'
+  mkdir -p /home/vagrant/.vnc
   chmod +x /home/vagrant/data/systemfiles/copy_files.sh
   /home/vagrant/data/systemfiles/copy_files.sh
 
-  echo 'source .prompt' >> /home/vagrant/.bashrc
+  grep -q -e 'source .prompt' /home/vagrant/.bashrc || echo 'source .prompt' >> /home/vagrant/.bashrc
 
   # Make sure that vagrant doesn't re-install everything
   touch /.installed
